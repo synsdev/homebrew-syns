@@ -1,36 +1,36 @@
 class Syns < Formula
   desc "Command-line client for the Syns coordinated multi-agent development platform."
   homepage "https://github.com/synsdev/syns-cli"
-  version "0.2.3"
+  version "0.2.4"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.3/syns-aarch64-apple-darwin.tar.gz"
-      sha256 "f4161394ff6ffe6fff79da43b274b4a7b1f969c54e00526556e1a892e65f14cd"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.4/syns-aarch64-apple-darwin.tar.gz"
+      sha256 "8afe29b1eadcc1a9c5cd9649cfc161e15ddbafa6d98bbb73151c846bfb743b9e"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.3/syns-x86_64-apple-darwin.tar.gz"
-      sha256 "4a0432755a72cf62217e93b724a9e4dbed32345860215b428870ceb51099476a"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.4/syns-x86_64-apple-darwin.tar.gz"
+      sha256 "373217ab6012d45e77539fb8aca7ff69881da84b747b2d810023dcdd444ba357"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.3/syns-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "0e6e14d089cf4f2d681dee1cfffadb2d20389df81c7767328d5ca1c232575094"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.4/syns-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "5f092eb614b38677fb328fa32d6ae3199c67169dfa3899b249168f33050a7101"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.3/syns-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "c7ba13c780a3b2f071732151077cbfd271d4c7ac7147c075f036507477076d4e"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.4/syns-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "97aba478d886a24d557cd2149949806f0729c0e08e8c53d4377730bd4f347111"
     end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin": {},
+    "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin": {},
-    "x86_64-pc-windows-gnu": {},
-    "x86_64-unknown-linux-gnu": {}
-  }
+    "x86_64-apple-darwin":       {},
+    "x86_64-pc-windows-gnu":     {},
+    "x86_64-unknown-linux-gnu":  {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -48,18 +48,10 @@ class Syns < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "syns"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "syns"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      bin.install "syns"
-    end
-    if OS.linux? && Hardware::CPU.intel?
-      bin.install "syns"
-    end
+    bin.install "syns" if OS.mac? && Hardware::CPU.arm?
+    bin.install "syns" if OS.mac? && Hardware::CPU.intel?
+    bin.install "syns" if OS.linux? && Hardware::CPU.arm?
+    bin.install "syns" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 
