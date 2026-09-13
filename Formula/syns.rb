@@ -1,25 +1,25 @@
 class Syns < Formula
   desc "Command-line client for the Syns coordinated multi-agent development platform."
   homepage "https://github.com/synsdev/syns-cli"
-  version "0.2.7"
+  version "0.3.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.7/syns-aarch64-apple-darwin.tar.gz"
-      sha256 "f2566e82966389c6714c298c59e034b071cac3eb5b8bf11425d92182a443009c"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.0/syns-aarch64-apple-darwin.tar.gz"
+      sha256 "7bef353e5e9c836cb5e775ca8ac106a4ac318b21880d2b56f48261f7fbac80f9"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.7/syns-x86_64-apple-darwin.tar.gz"
-      sha256 "06dd1ec36efccbb952bc3064acd1e1e4cf5f6b160a23aa209d0ae62656f17237"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.0/syns-x86_64-apple-darwin.tar.gz"
+      sha256 "e519a2017db4f8aaabe36858497aeeb1572d0090075538a91df40d05b20cbb9f"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.7/syns-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "c0a7f6531db13959d3723d8eeacbc6f8f6d52808ecbba498b4a8472051a34700"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.0/syns-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "b48ce15b99d2e44b9e3457ec07951eab5e8f5ed726c3bf26acb42391553e36cd"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.2.7/syns-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "53e4fc3bf1f184731bf477871964d96b2ef0b2efd0b609a85869d3f170a647fd"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.0/syns-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "8ac4b80c3b4e708480e43f205eb6bc525c797779cec761af1e21f330fc74cb2e"
     end
   end
   license "MIT"
@@ -48,10 +48,18 @@ class Syns < Formula
   end
 
   def install
-    bin.install "syns" if OS.mac? && Hardware::CPU.arm?
-    bin.install "syns" if OS.mac? && Hardware::CPU.intel?
-    bin.install "syns" if OS.linux? && Hardware::CPU.arm?
-    bin.install "syns" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "syns"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "syns"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "syns"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "syns"
+    end
 
     install_binary_aliases!
 
