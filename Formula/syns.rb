@@ -1,25 +1,25 @@
 class Syns < Formula
   desc "Command-line client for the Syns coordinated multi-agent development platform."
   homepage "https://github.com/synsdev/syns-cli"
-  version "0.3.0"
+  version "0.3.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.0/syns-aarch64-apple-darwin.tar.gz"
-      sha256 "7bef353e5e9c836cb5e775ca8ac106a4ac318b21880d2b56f48261f7fbac80f9"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.1/syns-aarch64-apple-darwin.tar.gz"
+      sha256 "7a7fbe3a765c93a1876770d859e9ac71cbed07cca2a978d9ace4f54a126694f3"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.0/syns-x86_64-apple-darwin.tar.gz"
-      sha256 "e519a2017db4f8aaabe36858497aeeb1572d0090075538a91df40d05b20cbb9f"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.1/syns-x86_64-apple-darwin.tar.gz"
+      sha256 "aaa7217110f231154173d50d47d6fe689df4e8dac0cda396ca9ebb29bb01b922"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.0/syns-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "b48ce15b99d2e44b9e3457ec07951eab5e8f5ed726c3bf26acb42391553e36cd"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.1/syns-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "3c8a27dfe94f618549cf783eb64668a480cd0be8a0b01fbaaedf403ed7664705"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.0/syns-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "8ac4b80c3b4e708480e43f205eb6bc525c797779cec761af1e21f330fc74cb2e"
+      url "https://github.com/synsdev/syns-cli/releases/download/v0.3.1/syns-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "3d85f152b63fa042a0693bf66670ed3069787ed52d64bca426524a5a95baa225"
     end
   end
   license "MIT"
